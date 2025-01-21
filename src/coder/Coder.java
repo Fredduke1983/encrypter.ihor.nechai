@@ -28,11 +28,14 @@ public class Coder {
     }
 
     private char shiftChar(char c, int key, char[] alphabet, boolean isEncrypt) {
-        int index = indexOfChar.getIndexOfChar(alphabet, c);
         int length = alphabet.length;
+        int index = indexOfChar.getIndexOfChar(alphabet, c);
+
+        if (index == -1) {
+            return c;
+        }
 
         int newIndex = isEncrypt ? (index + key) % length : (index - key + length) % length;
-
         return alphabet[newIndex];
     }
 }

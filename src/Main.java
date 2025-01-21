@@ -1,29 +1,21 @@
-import service.FileHandler;
+import executable.ClientInterface;
+import executable.Program;
 
-import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
 
-        String command = "";
-        String filepath = "";
-        int key = 0;
+        if (args.length == 0) {
+            ClientInterface clientInterface = new ClientInterface();
+            Program program = new Program();
 
-        if (args.length > 0) {
+            args = clientInterface.getArrayNewArgs();
+
             try {
-                command = args[0];
-                filepath = args[1];
-                key = Integer.parseInt(args[2]);
-
-                FileHandler fileHandler = new FileHandler(command, filepath, key);
-                fileHandler.fileIO();
-            } catch (RuntimeException e) {
-                System.out.println("Please, fill all fields correct. It must be " +
-                        "(\"[ENCRYPT]/[DECRYPT]/[BRUTE_FORCE] c:/test/... [1-30]\")");
+                program.run(args);
+            } catch (NullPointerException e) {
+                System.out.println("Вихід з програми");
             }
-        } else {
-            System.out.println("Next time try to fill all fields correct ;)" +
-                    " like: \"java -jar Encrypter.jar DECRYPT c:/test/file[ENCRYPTED].txt 2\"");
         }
     }
 }
