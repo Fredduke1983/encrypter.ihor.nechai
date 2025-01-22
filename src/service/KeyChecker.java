@@ -18,7 +18,7 @@ public class KeyChecker {
 
         int length = stringBuilder.toString().split(" ").length;
         dotsSpacesMatches.add(stringBuilder.toString().matches(".*(\\s[A-Z][a-z]|\\,\\s).*"));
-
+        System.out.println("LENGTH" + length);
         if (length > 1) {
             spacesMatches.add(true);
         } else {
@@ -27,12 +27,12 @@ public class KeyChecker {
     }
 
     public boolean getIsCorrectKey() {
-        return isCorrectKey(dotsSpacesMatches, spacesMatches);
+        return isCorrectKey();
     }
 
-    private boolean isCorrectKey(ArrayList<Boolean> matches1, ArrayList<Boolean> matches2) {
-        boolean hasTrueInMatches1 = matches1.contains(true);
-        boolean isAllTrueInMatches2 = !matches2.contains(false);
+    private boolean isCorrectKey() {
+        boolean hasTrueInMatches1 = KeyChecker.dotsSpacesMatches.contains(true);
+        boolean isAllTrueInMatches2 = !KeyChecker.spacesMatches.contains(false);
         return hasTrueInMatches1 && isAllTrueInMatches2;
     }
 }

@@ -44,6 +44,7 @@ public class FileHandler {
                                 cryptedLine = coder.decrypt(line.toCharArray(), key, alphabets);
                                 break;
                             case "BRUTE_FORCE":
+                                System.out.println(randomKey);
                                 cryptedLine = coder.decrypt(line.toCharArray(), randomKey, alphabets);
                                 keyChecker.findMatches(cryptedLine);
                                 break;
@@ -53,8 +54,8 @@ public class FileHandler {
                         resultToWrite.append(cryptedLine).append(System.lineSeparator());
                     }
 
-                    isCorrectKeyCheck = command == "BRUTE_FORCE" ? keyChecker.getIsCorrectKey() : true;
-
+                    isCorrectKeyCheck = command != "BRUTE_FORCE" ? keyChecker.getIsCorrectKey() : true;
+                    System.out.println(isCorrectKeyCheck);
                     if (isCorrectKeyCheck) {
                         try (BufferedWriter writer = new BufferedWriter(new FileWriter(UpdateFileName.updateFileName(filepath, command)))) {
                             writer.write(resultToWrite.toString());

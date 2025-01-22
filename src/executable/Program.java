@@ -9,7 +9,7 @@ public class Program {
         try {
             String command = args[0];
             String filepath = args[1];
-            int key = Math.abs(Integer.parseInt(args[2]));
+            int key = args.length > 2 ? Math.abs(Integer.parseInt(args[2])) : 0;
 
             FileHandler fileHandler = new FileHandler(command, filepath, key);
             fileHandler.fileIO();

@@ -17,7 +17,7 @@ public class AllocateLang {
 
         int countEn = 0;
         int countUa = 0;
-        String lang = "";
+        String lang;
 
         ArrayList<char[]> enAlphabets = new ArrayList<>();
         enAlphabets.add(upAlphabetEn);
