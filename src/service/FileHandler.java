@@ -4,6 +4,7 @@ import Constants.Alphabets;
 import coder.Coder;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class FileHandler {
 
@@ -33,16 +34,17 @@ public class FileHandler {
 
                     while ((line = reader.readLine()) != null) {
                         char[] cryptedLine;
+                        ArrayList<char[]> alphabets = AllocateLang.whatLang(line.toCharArray());
 
                         switch (command) {
                             case "ENCRYPT":
-                                cryptedLine = coder.encrypt(line.toCharArray(), key);
+                                cryptedLine = coder.encrypt(line.toCharArray(), key, alphabets);
                                 break;
                             case "DECRYPT":
-                                cryptedLine = coder.decrypt(line.toCharArray(), key);
+                                cryptedLine = coder.decrypt(line.toCharArray(), key, alphabets);
                                 break;
                             case "BRUTE_FORCE":
-                                cryptedLine = coder.decrypt(line.toCharArray(), randomKey);
+                                cryptedLine = coder.decrypt(line.toCharArray(), randomKey, alphabets);
                                 keyChecker.findMatches(cryptedLine);
                                 break;
                             default:
