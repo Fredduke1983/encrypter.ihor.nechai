@@ -8,7 +8,6 @@ public class Main {
             ClientInterface clientInterface = new ClientInterface();
             args = clientInterface.getArrayNewArgs();
         }
-
         try {
             program.run(args);
         } catch (NullPointerException e) {

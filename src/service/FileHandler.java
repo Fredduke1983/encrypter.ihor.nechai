@@ -29,7 +29,6 @@ public class FileHandler {
                 try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
                     String line;
                     keyChecker.setListsClear();
-
                     StringBuilder resultToWrite = new StringBuilder();
 
                     while ((line = reader.readLine()) != null) {
@@ -44,7 +43,6 @@ public class FileHandler {
                                 cryptedLine = coder.decrypt(line.toCharArray(), key, alphabets);
                                 break;
                             case "BRUTE_FORCE":
-                                System.out.println(randomKey);
                                 cryptedLine = coder.decrypt(line.toCharArray(), randomKey, alphabets);
                                 keyChecker.findMatches(cryptedLine);
                                 break;

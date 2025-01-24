@@ -1,6 +1,7 @@
 package coder;
 
 import service.IndexOfChar;
+
 import java.util.ArrayList;
 
 public class Coder {
@@ -28,14 +29,13 @@ public class Coder {
         return result;
     }
 
-    private char shiftChar(char c, int key, char[] alphabet, boolean isEncrypt) {
-
-        int countOfRound = (int) Math.ceil((double) key / 26);
+    private char shiftChar(char symbol, int key, char[] alphabet, boolean isEncrypt) {
         int lengthOfAlphabet = alphabet.length;
-        int index = indexOfChar.getIndexOfChar(alphabet, c);
+        int countOfRound = (int) Math.ceil((double) key / lengthOfAlphabet);
+        int index = indexOfChar.getIndexOfChar(alphabet, symbol);
 
         if (index == -1) {
-            return c;
+            return symbol;
         }
         int newIndex = isEncrypt ? (index + key) % lengthOfAlphabet : (index - key + lengthOfAlphabet * countOfRound) % lengthOfAlphabet;
 

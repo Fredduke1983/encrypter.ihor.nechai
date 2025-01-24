@@ -5,15 +5,14 @@ import Constants.Alphabets;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class AllocateLang {
+class AllocateLang {
 
     private static final char[] upAlphabetEn = Alphabets.UPPERCASE_ALPHABET_EN;
     private static final char[] lowAlphabetEn = Alphabets.LOWERCASE_ALPHABET_EN;
     private static final char[] upAlphabetUa = Alphabets.UPPERCASE_ALPHABET_UA;
     private static final char[] lowAlphabetUa = Alphabets.LOWERCASE_ALPHABET_UA;
 
-
-    public static ArrayList<char[]> whatLang(char[] c) {
+    static ArrayList<char[]> whatLang(char[] c) {
 
         int countEn = 0;
         int countUa = 0;
