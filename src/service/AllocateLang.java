@@ -39,7 +39,6 @@ public class AllocateLang {
             }
         }
         lang = countEn > countUa ? "EN" : "UA";
-
         return mapOfLang.get(lang);
     }
 

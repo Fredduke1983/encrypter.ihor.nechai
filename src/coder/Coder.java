@@ -11,18 +11,18 @@ public class Coder {
         return process(s, key, true, lang);
     }
 
-    public char[] decrypt(char[] s, int key, ArrayList<char[]> lang) {
-        return process(s, key, false, lang);
+    public char[] decrypt(char[] chars, int key, ArrayList<char[]> lang) {
+        return process(chars, key, false, lang);
     }
 
-    private char[] process(char[] s, int key, boolean isEncrypt, ArrayList<char[]> lang) {
-        char[] result = new char[s.length];
+    private char[] process(char[] chars, int key, boolean isEncrypt, ArrayList<char[]> lang) {
+        char[] result = new char[chars.length];
 
-        for (int i = 0; i < s.length; i++) {
-            if (Character.isUpperCase(s[i])) {
-                result[i] = shiftChar(s[i], key, lang.getFirst(), isEncrypt);
+        for (int i = 0; i < chars.length; i++) {
+            if (Character.isUpperCase(chars[i])) {
+                result[i] = shiftChar(chars[i], key, lang.getFirst(), isEncrypt);
             } else {
-                result[i] = shiftChar(s[i], key, lang.get(1), isEncrypt);
+                result[i] = shiftChar(chars[i], key, lang.get(1), isEncrypt);
             }
         }
         return result;
@@ -41,6 +41,4 @@ public class Coder {
 
         return alphabet[newIndex];
     }
-
-
 }

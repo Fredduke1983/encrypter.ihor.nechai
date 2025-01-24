@@ -18,7 +18,9 @@ public class KeyChecker {
 
         int length = stringBuilder.toString().split(" ").length;
         dotsSpacesMatches.add(stringBuilder.toString().matches(".*(\\s[A-Z][a-z]|\\,\\s).*"));
+
         System.out.println("LENGTH" + length);
+
         if (length > 1) {
             spacesMatches.add(true);
         } else {

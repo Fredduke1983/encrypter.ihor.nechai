@@ -54,8 +54,7 @@ public class FileHandler {
                         resultToWrite.append(cryptedLine).append(System.lineSeparator());
                     }
 
-                    isCorrectKeyCheck = command != "BRUTE_FORCE" ? keyChecker.getIsCorrectKey() : true;
-                    System.out.println(isCorrectKeyCheck);
+                    isCorrectKeyCheck = !command.equals("BRUTE_FORCE") || keyChecker.getIsCorrectKey();
                     if (isCorrectKeyCheck) {
                         try (BufferedWriter writer = new BufferedWriter(new FileWriter(UpdateFileName.updateFileName(filepath, command)))) {
                             writer.write(resultToWrite.toString());
