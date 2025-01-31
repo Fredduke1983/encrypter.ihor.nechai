@@ -1,18 +1,18 @@
-package coder;
+package crypto.rush.service;
 
-import service.IndexOfChar;
+import crypto.rush.utils.IndexOfChar;
 
 import java.util.ArrayList;
 
-public class Coder {
+class Coder {
 
     private final IndexOfChar indexOfChar = new IndexOfChar();
 
-    public char[] encrypt(char[] s, int key, ArrayList<char[]> lang) {
+    char[] encrypt(char[] s, int key, ArrayList<char[]> lang) {
         return process(s, key, true, lang);
     }
 
-    public char[] decrypt(char[] chars, int key, ArrayList<char[]> lang) {
+    char[] decrypt(char[] chars, int key, ArrayList<char[]> lang) {
         return process(chars, key, false, lang);
     }
 

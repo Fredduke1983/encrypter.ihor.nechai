@@ -1,4 +1,4 @@
-package service;
+package crypto.rush.utils;
 
 public class IndexOfChar {
 

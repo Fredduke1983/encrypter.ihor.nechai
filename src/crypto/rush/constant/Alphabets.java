@@ -1,4 +1,4 @@
-package Constants;
+package crypto.rush.constant;
 
 public class Alphabets {
     public static final char[] UPPERCASE_ALPHABET_EN = {

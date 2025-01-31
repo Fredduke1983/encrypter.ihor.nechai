@@ -1,8 +1,8 @@
-package service;
+package crypto.rush.utils;
 
-public class UpdateFileName {
+class UpdateFileName {
 
-    public static String updateFileName(String filePath, String command) {
+    static String createCommandFileName(String filePath, String command) {
         int indexOfDot = filePath.indexOf(".");
         String fileName = filePath.substring(0, indexOfDot);
         String fileExtention = filePath.substring(indexOfDot);

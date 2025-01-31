@@ -1,18 +1,19 @@
-package service;
+package crypto.rush.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class KeyChecker {
+class KeyChecker {
 
-    private static final ArrayList<Boolean> dotsSpacesMatches = new ArrayList<>();
-    private static final ArrayList<Boolean> spacesMatches = new ArrayList<>();
+    private static final List<Boolean> dotsSpacesMatches = new ArrayList<>();
+    private static final List<Boolean> spacesMatches = new ArrayList<>();
 
-    public void setListsClear() {
+    void setListsClear() {
         dotsSpacesMatches.clear();
         spacesMatches.clear();
     }
 
-    public void findMatches(char[] cryptedLine) {
+    void findMatchesSpecialSymbols(char[] cryptedLine) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(cryptedLine);
 
@@ -26,11 +27,7 @@ public class KeyChecker {
         }
     }
 
-    public boolean getIsCorrectKey() {
-        return isCorrectKey();
-    }
-
-    private boolean isCorrectKey() {
+    boolean getIsCorrectKey() {
         boolean hasTrueInMatches1 = KeyChecker.dotsSpacesMatches.contains(true);
         boolean isAllTrueInMatches2 = !KeyChecker.spacesMatches.contains(false);
         return hasTrueInMatches1 && isAllTrueInMatches2;

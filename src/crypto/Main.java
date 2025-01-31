@@ -1,5 +1,7 @@
-import executable.ClientInterface;
-import executable.Program;
+package crypto;
+
+import crypto.rush.executable.ClientInterface;
+import crypto.rush.executable.Program;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,7 +12,7 @@ public class Main {
         }
         try {
             program.run(args);
-        } catch (NullPointerException e) {
+        } catch (Exception e) {
             System.out.println("Вихід з програми");
         }
     }
